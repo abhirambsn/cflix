@@ -1,0 +1,40 @@
+{% extends 'layouts/main.layout.html' %}
+{% block title %}CFlix - {{ user.username }}{% endblock title %}
+{% block body %}
+<div class="container">
+    <h1 class="text-center">Search Results</h1>
+    <div class="row">
+        {% if music %}
+        <h3>Music</h3>
+        {% for data in music %}
+        <div class="col">
+            <div class="card" style="width: 18rem;" onclick="window.location='/audio/{{ data.id }}'">
+                <img src="{{ data.cover.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ data.title }}</h5>
+                    <p class="card-text">{{ data.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <br>
+    </div>
+    <div class="row">
+        {% if video %}
+        <h3>Videos</h3>
+        {% for data in video %}
+        <div class="col">
+            <div class="card" style="width: 18rem;" onclick="window.location='/video/{{ data.id }}'">
+                <img src="{{ data.cover.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ data.title }}</h5>
+                    <p class="card-text">{{ data.description }}</p>
+                </div>
+            </div><br>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,22 @@
+{% extends 'layouts/auth.layout.html' %}
+{% block title %}Register{% endblock title %}
+{% block body %}
+<div class="container">
+    <div class="card">
+        <div class="card-header text-center">
+            <strong>Register</strong>
+        </div>
+        <div class="card-body">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ registerForm.as_p }}
+                <div class="row">
+                    <div class="col d-grid gap-2">
+                        <button class="btn btn-success" type="submit">Register</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}

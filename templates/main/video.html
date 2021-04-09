@@ -1,0 +1,20 @@
+{% extends 'layouts/main.layout.html' %}
+{% block title %}Video{% endblock title %}
+{% block body %}
+<link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
+<div class="container">
+    <div class="h-100 d-flex justify-content-center align-items-center" style="padding-top: 10%;">
+        <video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
+            poster="{{ video.cover.url }}" data-setup="{}">
+            <source src="{{ video.file.url }}" />
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a
+                web browser that
+                <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
+    </div>
+</div>
+<!-- <video src="{{ video.file.url }}" controls autoplay controlsList="nodownload"></video> -->
+<script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
+{% endblock body %}

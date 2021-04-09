@@ -1,0 +1,77 @@
+{% extends 'layouts/main.layout.html' %}
+{% block title %}Profile - {{ user.first_name }}{% endblock title %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header text-center">
+                    <strong>User Profile</strong>
+                </div>
+                <div class="card-body">
+                    <form action="#">
+                        <div class="mb-3 row">
+                            <label for="staticUName" class="col-sm-2 col-form-label"><strong>Username :
+                                </strong></label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control-plaintext" id="staticUName"
+                                    value="{{ user.username }}">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="staticFName" class="col-sm-2 col-form-label"><strong>First Name :
+                                </strong></label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control-plaintext" id="staticFName"
+                                    value="{{ user.first_name }}">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="staticLName" class="col-sm-2 col-form-label"><strong>Last Name :
+                                </strong></label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control-plaintext" id="staticLName"
+                                    value="{{ user.last_name }}">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Email ID :
+                                </strong></label>
+                            <div class="col-sm-10">
+                                <input type="email" readonly class="form-control-plaintext" id="staticEmail"
+                                    value="{{ user.email }}">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="mb-3 row">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modifyForm">Modify
+                            Data</button>
+                    </div>
+                    <div class="modal fade" id="modifyForm" tabindex="-1" aria-labelledby="modifyFormLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modify Data</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="{% url 'main:profile' %}" method="POST">
+                                        {% csrf_token %}
+                                        {{ modifyDataForm.as_p }}
+                                        <div class="col d-grid gap-2">
+                                            <button type="submit" class="btn btn-info">Update</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}

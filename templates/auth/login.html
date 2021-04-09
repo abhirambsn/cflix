@@ -1,0 +1,27 @@
+{% extends 'layouts/auth.layout.html' %}
+{% block title %}Login{% endblock title %}
+{% block body %}
+<div class="container">
+    <div class="card">
+        <div class="card-header text-center">
+            <strong>Login</strong>
+        </div>
+        <div class="card-body">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ loginForm.errors }}
+                <div class="row">
+                    <div class="col">
+                        {{ loginForm.as_p }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-grid gap-2">
+                        <button class="btn btn-primary" type="submit">Log In</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}

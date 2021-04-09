@@ -1,0 +1,15 @@
+{% extends 'layouts/main.layout.html' %}
+{% block title %}Audio{% endblock title %}
+{% block body %}
+<div class="container">
+    <div class="text-center">
+        <h1>Now Playing</h1>
+        <h2>Title: {{ music.title }}</h2>
+        <h3>Artist: {{ music.artist }}</h3>
+        <h3>Album: {{ music.album }}</h3>
+    </div>
+    <div class="h-100 d-flex justify-content-center align-items-center" style="padding-top: 15%;">
+        <audio src="{{ music.file.url }}" controls controlsList="nodownload"></audio>
+    </div>
+</div>
+{% endblock body %}

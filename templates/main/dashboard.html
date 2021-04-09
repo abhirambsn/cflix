@@ -1,0 +1,72 @@
+{% extends 'layouts/main.layout.html' %}
+{% block title %}CFlix - {{ user.username }}{% endblock title %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        {% if featured_v %}
+        <h3>Featured Videos</h3><br>
+        {% for data in featured_v %}
+        <div class="col">
+            <div class="card" style="width: 18rem;" onclick="window.location='/video/{{ data.id }}'">
+                <img src="{{ data.cover.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ data.title }}</h5>
+                    <p class="card-text">{{ data.description }}</p>
+                </div>
+            </div><br>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <br>
+    </div>
+    <div class="row">
+        {% if music %}
+        <h3>Audio</h3>
+        {% for data in music %}
+        <div class="col">
+            <div class="card" style="width: 18rem;" onclick="window.location='/audio/{{ data.id }}'">
+                <img src="{{ data.cover.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ data.title }}</h5>
+                    <p class="card-text">{{ data.description }}</p>
+                </div>
+            </div><br>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div class="row">
+        {% if videos %}
+        <h3>Videos</h3>
+        {% for data in videos %}
+        <div class="col">
+            <div class="card" style="width: 18rem;" onclick="window.location='/video/{{ data.id }}'">
+                <img src="{{ data.cover.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ data.title }}</h5>
+                    <p class="card-text">{{ data.description }}</p>
+                </div>
+            </div><br>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <br>
+    </div>
+    <div class="row">
+        {% if featured_m %}
+        <h3>Featured Music</h3><br>
+        {% for data in featured_m %}
+        <div class="col">
+            <div class="card" style="width: 18rem;" onclick="window.location='/audio/{{ data.id }}'">
+                <img src="{{ data.cover.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ data.title }}</h5>
+                    <p class="card-text">{{ data.description }}</p>
+                </div>
+            </div><br>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock body %}

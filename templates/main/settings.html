@@ -1,0 +1,22 @@
+{% extends 'layouts/main.layout.html' %}
+{% block title %}Settings - {{ user.username }}{% endblock title %}
+{% block body %}
+<div class="container">
+    <div class="card">
+        <div class="card-header text-center">
+            <strong>Change Password</strong>
+        </div>
+        <div class="card-body">
+            <form action="{% url 'main:settings' %}" method="POST">
+                {% csrf_token %}
+                {{ chPasswdForm.as_p }}
+                <div class="row">
+                    <div class="col d-grid gap-2">
+                        <button class="btn btn-warning" type="submit">Change Password</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}
